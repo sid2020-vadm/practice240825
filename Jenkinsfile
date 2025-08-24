@@ -11,7 +11,7 @@ pipeline{
         }
         stage('Test') {
             steps {
-                scrpit{
+                script{
                     catchError(buildResult:'UNSTABLE',stageResult:'FAILURE'){
                         withCredentials([usernamePassword(credentialsId: 'REST_BOOKER_CREDS', usernameVariable: 'RESTBOOKER_USERNAME', passwordVariable: 'RESTBOOKER_PASSWORD')]){
                             bat 'mvn clean install -Pcrud-tests'
@@ -22,7 +22,7 @@ pipeline{
         }
         stage('Reports') {
             steps{
-                scrpit{
+                script{
                     allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
                 }
             }
