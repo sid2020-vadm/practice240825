@@ -27,10 +27,10 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: API Tests
-      run: mvn clean test -Pregression -q
+      run: mvn clean test -Pcrud-tests -q
       
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v4.6.2
       with:
         name: allure-results
-        path: allure-results/
+        path: allure-results
