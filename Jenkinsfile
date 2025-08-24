@@ -14,7 +14,7 @@ pipeline{
                 script{
                     catchError(buildResult:'UNSTABLE',stageResult:'FAILURE'){
                         withCredentials([usernamePassword(credentialsId: 'REST_BOOKER_CREDS', usernameVariable: 'RESTBOOKER_USERNAME', passwordVariable: 'RESTBOOKER_PASSWORD')]){
-                            bat 'mvn clean install -Pcrud-tests'
+                            bat 'mvn clean install -P${profile}'
                         }
                     }
                 }
