@@ -1,6 +1,6 @@
 
 
-name: Java CI with Maven
+name: Workflow for Api tests
 
 on:
   push:
